@@ -5,6 +5,6 @@ namespace ShopTLA.Services.Users
 {
     public interface IUsersService
     {
-        public string Login(UsersDTO users);
+        public bool Login(UsersDTO users);
     }
 }

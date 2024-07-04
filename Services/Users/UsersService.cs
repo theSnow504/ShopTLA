@@ -19,7 +19,7 @@ namespace ShopTLA.Services.Users
             _context = dbcontext;
             _configuration=configuration;
         }
-        public string Login(UsersDTO users)
+        public bool Login(UsersDTO users)
         {
             var data = _context.UserAccounts.FirstOrDefault(x => x.UserName == users.UserName && x.PassWord==users.PassWord);
             if (data != null)
@@ -35,10 +35,10 @@ namespace ShopTLA.Services.Users
                 //var token = tokenHandler.CreateToken(tokenDescriptor);
                 //return tokenHandler.WriteToken(token);
                 var text = "thành công";
-                return (text);
+                return (true);
             }
 
-            return null;
+            return false;
         }
     }
 }

@@ -135,3 +135,6 @@ C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\runtimes\win\
 C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\package-lock.json
+C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\package.json
+C:\Projects\New folder\New folder\ShopTLA\ShopTLA\obj\Debug\net8.0\ShopTLA.sourcelink.json
