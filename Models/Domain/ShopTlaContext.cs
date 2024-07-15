@@ -193,3 +193,4 @@ public partial class ShopTlaContext : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
+

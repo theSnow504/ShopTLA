@@ -138,3 +138,10 @@ C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\Microsoft.Asp
 C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\package-lock.json
 C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\package.json
 C:\Projects\New folder\New folder\ShopTLA\ShopTLA\obj\Debug\net8.0\ShopTLA.sourcelink.json
+C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Projects\New folder\New folder\ShopTLA\ShopTLA\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
