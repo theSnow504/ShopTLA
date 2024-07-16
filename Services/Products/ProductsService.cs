@@ -14,7 +14,7 @@ namespace ShopTLA.Services.Products
             _context = dbcontext;
             _configuration=configuration;
         }
-        public async Task<Product> AddProduct(ProductsDTO product)
+        public async Task<Product?> AddProduct(ProductsDTO product)
         {
             if (product != null)
             {
@@ -23,16 +23,40 @@ namespace ShopTLA.Services.Products
                     CatId=product.CatIdDTO,
                     NatId=product.NatIdDTO,
                     ProName=product.ProNameDTO,
-                    ProPrice = product.ProPriceDTO,
                     ProDescription = product.ProDescriptionDTO,
-                    ProLastUpdate = product.ProLastUpdateDTO
+                    ProLastUpdate = DateTime.UtcNow,
                 };
                 await _context.Products.AddAsync(data);
                 await _context.SaveChangesAsync();
                 return data;
             }
             return null;
+        }
 
+        public async Task<ProductDetail?> AddProductDetail(ProductDetailsDTO detailsDTO)
+        {
+            if (detailsDTO != null)
+            {
+                var data = new ProductDetail()
+                {
+                    ProId=detailsDTO.ProIdDTO,
+                    PrdInventory=detailsDTO.PrdInventoryDTO,
+                    PrdSize=detailsDTO.PrdSizeDTO,
+                    PrdColor=detailsDTO.PrdColorDTO,
+                    PrdPrice=detailsDTO.PrdPriceDTO,
+                    PrdLastUpdate=DateTime.UtcNow,
+                };
+                await _context.ProductDetails.AddAsync(data);
+                await _context.SaveChangesAsync();
+                return data;
+            }
+            return null;
+        }
+
+        public async Task<Product?> GetProduct(int IdProd)
+        {
+            var data=await _context.Products.Include(x=>x.ProductDetails).FirstOrDefaultAsync(x=>x.ProId == IdProd);
+            return data;
         }
     }
 }

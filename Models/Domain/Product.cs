@@ -11,8 +11,6 @@ public partial class Product
 
     public string ProName { get; set; } = null!;
 
-    public double? ProPrice { get; set; }
-
     public string? ProDescription { get; set; }
 
     public int? NatId { get; set; }
@@ -24,4 +22,6 @@ public partial class Product
     public virtual Nation? Nat { get; set; }
 
     public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+
+    public virtual ICollection<ProductDetail> ProductDetails { get; set; } = new List<ProductDetail>();
 }

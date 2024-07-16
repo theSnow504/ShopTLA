@@ -27,7 +27,23 @@ namespace ShopTLA.Controllers
                 return BadRequest("Invalid register request");
             }
             var data = await _productsService.AddProduct(products);
-            if (data!=null)
+            if (data==null)
+            {
+                return ValidationProblem();
+            }
+            return Ok(data);
+        }
+
+        [Route("GetProduct")]
+        [HttpGet]
+        public async Task<IActionResult> GetProduct(int idProd)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Invalid register request");
+            }
+            var data = await _productsService.GetProduct(idProd);
+            if (data==null)
             {
                 return ValidationProblem();
             }

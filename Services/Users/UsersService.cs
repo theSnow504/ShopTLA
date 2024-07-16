@@ -22,32 +22,9 @@ namespace ShopTLA.Services.Users
             _context = dbcontext;
             _configuration=configuration;
         }
-
-        public async Task<bool> AddCustomer(Customer customer)
-        {
-            if (customer != null)
-            {
-                await _context.Customers.AddAsync(customer);
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            return false;
-        }
-
-        public async Task<bool> AddEmployee(Employee employee)
-        {
-            if (employee != null)
-            {
-                await _context.Employees.AddAsync(employee);
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            return false;
-        }
-
         public async Task<bool> ChangePass(ChangePassDTO changePass)
         {
-            if(changePass.PassWord!=changePass.ConfirmPassWord) return false;
+            if (changePass.PassWord!=changePass.ConfirmPassWord) return false;
             var idUser = int.Parse(Token.Authentication(changePass.Token));
             var data = _context.UserAccounts.FirstOrDefault(x => x.Id==idUser);
             if (data == null)
@@ -61,12 +38,11 @@ namespace ShopTLA.Services.Users
                 _context.UserAccounts.Update(data);
                 await _context.SaveChangesAsync();
                 return true;
-            }    
+            }
         }
-
-        public async Task<string> Login(UsersDTO user)
+        public async Task<string?> Login(UsersDTO user)
         {
-            var data = _context.UserAccounts.FirstOrDefault(x => x.UserName == user.UserName);
+            var data = await _context.UserAccounts.FirstOrDefaultAsync(x => x.UserName == user.UserName);
             if (data == null)
             {
                 return null;
@@ -79,21 +55,19 @@ namespace ShopTLA.Services.Users
             string token = Token.GenerateSecurityToken(data.Id, "7");
             return token;
         }
-
         public bool Logout()
         {
-            
+
             throw new NotImplementedException();
         }
-
-        public async Task<string> Register(RegisterDTO register)
+        public async Task<string?> Register(RegisterDTO register)
         {
             if (register.PassWord!=register.ConfirmPassWord)
             {
                 return null;
             }
             var checkExit = await _context.UserAccounts.FirstOrDefaultAsync(x => x.UserName == register.UserName);
-            UserAccount newUser=new UserAccount();
+            UserAccount newUser = new UserAccount();
             if (checkExit==null)
             {
                 var hashedPassword = BCrypt.Net.BCrypt.HashPassword(register.PassWord);
@@ -108,7 +82,7 @@ namespace ShopTLA.Services.Users
                 };
                 await _context.UserAccounts.AddAsync(newUser);
                 await _context.SaveChangesAsync();
-                
+
                 return newUser.UserName;
             }
             return null;
